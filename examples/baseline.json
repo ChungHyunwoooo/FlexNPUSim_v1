@@ -1,0 +1,71 @@
+{
+  "hw": {
+    "preset_name": "nvdla-large",
+    "clock_cycle_ns": 1.0,
+    "dataflow": "WS",
+    "npu_mapping": {
+      "unit_type": "adder_tree",
+      "ops_per_pass": 64,
+      "parallel_passes": 1,
+      "num_output_lanes": 16,
+      "element_size_bytes": 2,
+      "local_psum_buffer_kb": 16,
+      "pe_rows": 16,
+      "pe_cols": 16,
+      "threshold_ratio": 0.25,
+      "zero_skipping": "off",
+      "enable_granularity": "lockstep",
+      "issue_interval_q8": 256
+    },
+    "buffer": {
+      "input": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "weight": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "output": {
+        "capacity": 16,
+        "unit": "kb"
+      }
+    },
+    "fetch_bitwidth": 0,
+    "write_bitwidth": 0,
+    "global_buffer": {
+      "capacity_kb": 512,
+      "partition_mode": "fixed",
+      "output_location": "accumulator",
+      "model_spill": false,
+      "layer_fusion": "none"
+    },
+    "dma": {
+      "read_channels": 4,
+      "write_channels": 1
+    }
+  },
+  "network": {
+    "csv": "model/sw/cnn/nvdla-large/tiny2layer.csv",
+    "input_channels": 3,
+    "scenario_label": "baseline"
+  },
+  "axi": {
+    "protocol": "AXI4",
+    "data_width_bits": 128,
+    "max_outstanding_reads": 8,
+    "max_outstanding_writes": 4
+  },
+  "dram": {
+    "tier": "cycle",
+    "ini": "model/hw/memory/LPDDR4_2400_x16.ini"
+  },
+  "sim": {
+    "output_dir": "out/baseline",
+    "memory_timing": "per_burst"
+  },
+  "compiler": {
+    "type": "compile",
+    "strategy": "dataflow"
+  }
+}

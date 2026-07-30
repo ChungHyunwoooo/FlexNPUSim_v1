@@ -1,0 +1,50 @@
+{
+  "hw": {
+    "preset_name": "eyeriss-v2",
+    "clock_cycle_ns": 5.0,
+    "dataflow": "IS",
+    "npu_mapping": {
+      "unit_type": "systolic",
+      "ops_per_pass": 16,
+      "parallel_passes": 1,
+      "num_output_lanes": 16,
+      "element_size_bytes": 1,
+      "local_psum_buffer_kb": 0,
+      "threshold_ratio": 1.0,
+      "zero_skipping": "off"
+    },
+    "buffer": {
+      "input": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "weight": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "output": {
+        "capacity": 0,
+        "unit": "kb"
+      }
+    },
+    "fetch_bitwidth": 0,
+    "write_bitwidth": 0,
+    "global_buffer": {
+      "capacity_kb": 192,
+      "partition_mode": "fixed",
+      "backpressure_enabled": true
+    },
+    "dma": {
+      "buffer_size_kb": 8,
+      "max_burst_length": 8,
+      "read_channels": 2
+    }
+  },
+  "axi": {
+    "data_width_bits": 64
+  },
+  "dram": {
+    "tier": "cycle",
+    "ini": "model/hw/memory/DDR4_3200_x8.ini"
+  }
+}

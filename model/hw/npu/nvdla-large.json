@@ -1,0 +1,52 @@
+{
+  "hw": {
+    "preset_name": "nvdla-large",
+    "clock_cycle_ns": 1.0,
+    "dataflow": "WS",
+    "npu_mapping": {
+      "unit_type": "adder_tree",
+      "ops_per_pass": 64,
+      "parallel_passes": 1,
+      "num_output_lanes": 16,
+      "element_size_bytes": 2,
+      "local_psum_buffer_kb": 16,
+      "enable_granularity": "lockstep",
+      "threshold_ratio": 0.25,
+      "zero_skipping": "off"
+    },
+    "buffer": {
+      "input": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "weight": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "output": {
+        "capacity": 16,
+        "unit": "kb"
+      }
+    },
+    "fetch_bitwidth": 0,
+    "write_bitwidth": 0,
+    "global_buffer": {
+      "capacity_kb": 512,
+      "partition_mode": "fixed",
+      "backpressure_enabled": true,
+      "output_location": "accumulator"
+    },
+    "dma": {
+      "buffer_size_kb": 16,
+      "max_burst_length": 8,
+      "read_channels": 4
+    }
+  },
+  "axi": {
+    "data_width_bits": 128
+  },
+  "dram": {
+    "tier": "cycle",
+    "ini": "model/hw/memory/LPDDR4_2400_x16.ini"
+  }
+}

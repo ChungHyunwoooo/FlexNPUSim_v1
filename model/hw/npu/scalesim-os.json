@@ -1,0 +1,45 @@
+{
+  "hw": {
+    "preset_name": "scalesim-os",
+    "clock_cycle_ns": 1.0,
+    "dataflow": "OS",
+    "npu_mapping": {
+      "unit_type": "systolic",
+      "ops_per_pass": 16,
+      "parallel_passes": 1,
+      "num_output_lanes": 16,
+      "element_size_bytes": 1,
+      "local_psum_buffer_kb": 64,
+      "threshold_ratio": 0.25,
+      "zero_skipping": "off"
+    },
+    "buffer": {
+      "input": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "weight": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "output": {
+        "capacity": 64,
+        "unit": "kb"
+      }
+    },
+    "fetch_bitwidth": 0,
+    "write_bitwidth": 0,
+    "global_buffer": {
+      "capacity_kb": 2048,
+      "partition_mode": "fixed",
+      "backpressure_enabled": true
+    }
+  },
+  "axi": {
+    "data_width_bits": 64
+  },
+  "dram": {
+    "tier": "cycle",
+    "ini": "model/hw/memory/LPDDR4_2400_x16.ini"
+  }
+}

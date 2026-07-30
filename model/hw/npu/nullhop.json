@@ -1,0 +1,55 @@
+{
+  "hw": {
+    "preset_name": "nullhop",
+    "clock_cycle_ns": 2.0,
+    "dataflow": "WS",
+    "npu_mapping": {
+      "unit_type": "systolic",
+      "ops_per_pass": 16,
+      "parallel_passes": 1,
+      "num_output_lanes": 8,
+      "element_size_bytes": 2,
+      "local_psum_buffer_kb": 8,
+      "threshold_ratio": 0.125,
+      "zero_skipping": "on",
+      "sparsity_model": "remove"
+    },
+    "buffer": {
+      "input": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "weight": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "output": {
+        "capacity": 8,
+        "unit": "kb"
+      }
+    },
+    "fetch_bitwidth": 0,
+    "write_bitwidth": 0,
+    "global_buffer": {
+      "capacity_kb": 256,
+      "partition_mode": "fixed",
+      "backpressure_enabled": true,
+      "output_location": "accumulator",
+      "input_compression_ratio": 1.449,
+      "weight_compression_ratio": 1.0,
+      "output_compression_ratio": 1.449
+    },
+    "dma": {
+      "buffer_size_kb": 8,
+      "max_burst_length": 8,
+      "read_channels": 1
+    }
+  },
+  "axi": {
+    "data_width_bits": 64
+  },
+  "dram": {
+    "tier": "cycle",
+    "ini": "model/hw/memory/LPDDR4_2400_x16.ini"
+  }
+}

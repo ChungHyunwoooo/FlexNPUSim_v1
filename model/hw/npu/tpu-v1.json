@@ -1,0 +1,46 @@
+{
+  "hw": {
+    "preset_name": "tpu-v1",
+    "clock_cycle_ns": 10.0,
+    "dataflow": "WS",
+    "npu_mapping": {
+      "unit_type": "systolic",
+      "ops_per_pass": 256,
+      "parallel_passes": 1,
+      "num_output_lanes": 256,
+      "element_size_bytes": 1,
+      "local_psum_buffer_kb": 4096,
+      "threshold_ratio": 1.0,
+      "zero_skipping": "off"
+    },
+    "buffer": {
+      "input": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "weight": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "output": {
+        "capacity": 4096,
+        "unit": "kb"
+      }
+    },
+    "fetch_bitwidth": 0,
+    "write_bitwidth": 0,
+    "global_buffer": {
+      "capacity_kb": 28672,
+      "partition_mode": "fixed",
+      "backpressure_enabled": true,
+      "output_location": "accumulator"
+    }
+  },
+  "axi": {
+    "data_width_bits": 256
+  },
+  "dram": {
+    "tier": "cycle",
+    "ini": "model/hw/memory/DDR3_1866_x16.ini"
+  }
+}

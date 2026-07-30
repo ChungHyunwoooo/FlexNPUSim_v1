@@ -1,0 +1,40 @@
+# Build
+build/
+cmake-build-*/
+Testing/
+*.o
+*.a
+*.so
+*.so.*
+
+# Simulator outputs (regenerable)
+out/
+*.vcd
+*.trace
+*.log
+
+# External deps that are fetched or too large to vendor
+# (dramsim3/systemc/spdlog: FetchContent fallback exists; drop a local checkout to skip the fetch)
+external/dramsim3/
+external/systemc/
+external/spdlog/
+external/nvdla-hw/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+venv/
+.venv/
+
+# IDE / editors
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+
+# DRAMSim3 output artifacts (cycle tier)
+dramsim3epoch.json
+dramsim3.json

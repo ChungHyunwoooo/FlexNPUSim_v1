@@ -1,0 +1,2 @@
+layer_id,function_id,layer_name,layer_type,function_type,i1_connect,i2_connect,input_h,input_w,input_c,kernel_h,kernel_w,kernel_c,kernel_count,stride,padding,dilation,tile_h,tile_w,pe_type,k,g,s,psum_kb,preprocess_type,preprocess_param0,preprocess_param1,t_r,t_c,t_oc,t_ic,t_kern,intra_order
+0,0,alexnet_conv5,conv2d,conv2d,4294967295,4294967295,13,13,384,3,3,384,256,1,1,1,16,16,adder_tree,64,1,16,0,none,0,0,13,13,32,384,9,1

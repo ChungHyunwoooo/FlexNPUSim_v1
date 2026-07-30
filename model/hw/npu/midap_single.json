@@ -1,0 +1,56 @@
+{
+  "hw": {
+    "preset_name": "midap",
+    "clock_cycle_ns": 1.0,
+    "dataflow": "IS",
+    "npu_mapping": {
+      "unit_type": "adder_tree",
+      "ops_per_pass": 64,
+      "parallel_passes": 1,
+      "num_output_lanes": 16,
+      "element_size_bytes": 1,
+      "local_psum_buffer_kb": 16,
+      "threshold_ratio": 0.125,
+      "zero_skipping": "off"
+    },
+    "buffer": {
+      "input": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "weight": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "output": {
+        "capacity": 16,
+        "unit": "kb"
+      }
+    },
+    "fetch_bitwidth": 0,
+    "write_bitwidth": 0,
+    "global_buffer": {
+      "capacity_kb": 1024,
+      "partition_mode": "fixed",
+      "backpressure_enabled": true,
+      "output_location": "accumulator",
+      "double_buffer": "on",
+      "layer_fusion": "auto"
+    },
+    "dma": {
+      "buffer_size_kb": 32,
+      "max_burst_length": 16,
+      "read_channels": 1
+    }
+  },
+  "axi": {
+    "data_width_bits": 256
+  },
+  "dram": {
+    "tier": "bandwidth",
+    "read_latency_cyc": 100,
+    "write_latency_cyc": 30,
+    "bandwidth_bytes_per_cycle": 26,
+    "include_writes": false
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "hw": {
+    "preset_name": "eyeriss-v1",
+    "clock_cycle_ns": 10.0,
+    "dataflow": "IS",
+    "npu_mapping": {
+      "unit_type": "systolic",
+      "ops_per_pass": 14,
+      "parallel_passes": 1,
+      "num_output_lanes": 12,
+      "element_size_bytes": 1,
+      "local_psum_buffer_kb": 0,
+      "threshold_ratio": 1.0,
+      "zero_skipping": "off"
+    },
+    "buffer": {
+      "input": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "weight": {
+        "capacity": 0,
+        "unit": "operands"
+      },
+      "output": {
+        "capacity": 0,
+        "unit": "kb"
+      }
+    },
+    "fetch_bitwidth": 0,
+    "write_bitwidth": 0,
+    "global_buffer": {
+      "capacity_kb": 108,
+      "partition_mode": "fixed",
+      "backpressure_enabled": true
+    }
+  },
+  "axi": {
+    "data_width_bits": 64
+  },
+  "dram": {
+    "tier": "cycle",
+    "ini": "model/hw/memory/LPDDR4_2400_x16.ini"
+  }
+}
